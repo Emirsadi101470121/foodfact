@@ -22,7 +22,7 @@
    width: 100%;
    align-items: center;
    background-color: greenyellow;
-   padding: 20px;
+   padding: 25px;
    position: fixed;
    background: linear-gradient(to right, #ff9966, #ff5e62);
    z-index: 999;
@@ -64,8 +64,40 @@
 
  }
 
+ #home_nav a{
+  text-decoration: none;
+   text-transform: capitalize;
+   border: 1px solid #4a2c2a;
+   padding: 10px;
+   background-color: #ff5e62;
+   color: white;
+   border-radius: 10px;
+   box-shadow: 0px 2px #b30754;
+   width: 65px;
+   margin-top: 10px;
+ }
+
+ #home_nav a:active {
+
+  margin-top: 8px;
+   margin-bottom: 9px;
+   box-shadow: 0px 0px;
+   background-color: #ffb6c1;
+   color: #ff69b4;
+
+ }
+
+ #home_nav {
+  display: flex;
+  flex-direction: column;
+  
+ }
+
+ 
+
  main {
    padding-top: 85px;
+  width: 100%;
  }
 
  /* dairy */

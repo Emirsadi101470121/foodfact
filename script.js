@@ -187,7 +187,7 @@ class FoodFact {
     handleCardClick() {
         for (let key in this._selected) {
             for (let card of this._card) {
-                // ✅ Prevent adding duplicate listeners
+            
                 if (!card.dataset.listenerAttached) {
                     card.addEventListener('click', () => {
 
@@ -212,7 +212,7 @@ class FoodFact {
                         };
                     });
 
-                    // ✅ Mark listener as attached
+                    
                     card.dataset.listenerAttached = "true";
                 }
             }
@@ -333,11 +333,11 @@ class FoodFact {
         // 3. Hide result section
         this._Resultsection.style.display = 'none';
 
-        // 4. Remove LED glow and allow re-attaching event listeners
+        // 4. Remove the LED
         const allCards = document.querySelectorAll('.card');
         allCards.forEach(card => {
             card.classList.remove('selected');
-            delete card.dataset.listenerAttached; // 💥 Reset click logic
+            delete card.dataset.listenerAttached; // this one reset the button 
         });
 
         // 5. Reset button and internal state
@@ -349,7 +349,7 @@ class FoodFact {
             '#dairy .card, #snacks .card, #vegetable .card, #carbohydrate .card'
         );
 
-        // 6. Re-activate card selection logic
+        // 6. active the card selection again
         this.handleCardClick();
     }
 
