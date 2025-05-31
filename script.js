@@ -300,64 +300,63 @@ class FoodFact {
     }
 
     resetApp() {
-        console.log("RESET triggered");
+    console.log("RESET triggered");
 
-        const map = {
-            dairy: 'first',
-            snacks: 'secound',
-            vegetable: 'third',
-            carbohydrate: 'fourth'
-        };
+    const map = {
+        dairy: 'first',
+        snacks: 'secound',
+        vegetable: 'third',
+        carbohydrate: 'fourth'
+    };
 
-        // 1. Show original cards again and hide result cards
-        for (let keys in this._selected) {
-            const selected = this._selected[keys];
-            if (selected && selected.id) {
-                const originalCard = document.getElementById(selected.id);
-                if (originalCard) originalCard.style.display = 'block';
-            }
-
-            const resultCard = document.getElementById(map[keys]);
-            if (resultCard) resultCard.style.display = 'none';
+    // 1. Show original cards again and hide result cards
+    for (let keys in this._selected) {
+        const selected = this._selected[keys];
+        if (selected && selected.id) {
+            const originalCard = document.getElementById(selected.id);
+            if (originalCard) originalCard.style.display = 'block';
         }
 
-        // 2. Reset selection and indexes
-        for (let key in this._selected) {
-            this._selected[key] = null;
-        }
-
-        for (let key in this._factIndex) {
-            this._factIndex[key] = 0;
-        }
-
-        // 3. Hide result section
-        this._Resultsection.style.display = 'none';
-
-        // 4. Remove the LED
-        const allCards = document.querySelectorAll('.card');
-        allCards.forEach(card => {
-            card.classList.remove('selected');
-            delete card.dataset.listenerAttached; // this one reset the button 
-        });
-
-        // 5. Reset button and internal state
-        this._isLockedIn = false;
-        this._button.textContent = 'LOCK IN';
-        console.log("Locked in flag reset to:", this._isLockedIn);
-
-        this._card = document.querySelectorAll(
-            '#dairy .card, #snacks .card, #vegetable .card, #carbohydrate .card'
-        );
-
-        // 6. active the card selection again
-        this.handleCardClick();
+        const resultCard = document.getElementById(map[keys]);
+        if (resultCard) resultCard.style.display = 'none';
     }
 
+    // 2. Reset selection 
+    for (let key in this._selected) {
+        this._selected[key] = null;
+    }
 
+    for (let key in this._factIndex) {
+        this._factIndex[key] = 0;
+    }
 
+    // 3. Hide result section
+    this._Resultsection.style.display = 'none';
+
+    // 4. Remove the LED 
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach(card => {
+        card.classList.remove('selected');
+        delete card.dataset.listenerAttached;
+    });
+
+    // 5. Reset button text and lock-in flag
+    this._isLockedIn = false;
+    this._button.textContent = 'LOCK IN';
+    console.log("Locked in flag reset to:", this._isLockedIn);
+
+    
+    this._card = document.querySelectorAll(
+        '#dairy .card, #snacks .card, #vegetable .card, #carbohydrate .card, #fruit .card'
+    );
+
+    
+    this.handleCardClick();
 }
-console.log("Script loaded successfully")
+}
+
 
 const app = new FoodFact();
+
 app.handleCardClick();
 
