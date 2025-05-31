@@ -185,41 +185,41 @@ class FoodFact {
                 ]
             },
             fruit: {
-                a: [
-                    "fruit is 87% water.",
-                    "Cheese is over 7,000 years old.",
-                    "Yogurt helps digestion.",
-                    "Butter is churned cream.",
-                    "Calcium builds strong bones.",
-                    "Cows make 6 gallons daily.",
-                    "Cheese flavor comes from aging.",
-                    "Milk has natural sugar: lactose.",
-                    "Dairy cows eat 100 lbs daily.",
-                    "There are 400+ cheese types."
+                apple: [
+                    "There are over 7,500 varieties of apples grown worldwide.",
+                    "The apple tree originated in Central Asia.",
+                    "Apples are 25% air, which is why they float in water.",
+                    "The science of apple growing is called pomology.",
+                    "Apples are rich in fiber, vitamin C, and antioxidants.",
+                    "The apple blossom is the state flower of Michigan.",
+                    "The average apple contains about 80 calories.",
+                    "Apple seeds contain a small amount of cyanide, but are safe in small quantities.",
+                    "The phrase “an apple a day keeps the doctor away” originated in Wales.",
+                    "China is the largest producer of apples in the world."
                 ],
-                b: [
-                    "fruit dates back over 7,000 years.",
-                    "There are over 1,800 cheese types.",
-                    "Cheddar gets sharper with age.",
-                    "Blue cheese has edible mold.",
-                    "Mozzarella was first made in Italy.",
-                    "Parmesan is aged for 12+ months.",
-                    "Cheese can be made from goat milk.",
-                    "Hard cheeses have less moisture.",
-                    "Swiss cheese has holes from gas.",
-                    "Smoked cheese has a rich flavor."
+                banana: [
+                    "Bananas grow on large herbaceous plants, not trees.",
+                    "There are over 1,000 varieties of bananas worldwide.",
+                    "Bananas are a good source of potassium and vitamin B6.",
+                    "The banana plant is native to Southeast Asia.",
+                    "Bananas ripen faster after being picked because they produce ethylene gas.",
+                    "Most bananas consumed worldwide are from the Cavendish variety.",
+                    "Bananas can help improve digestion due to their fiber content.",
+                    "Bananas float in water because they are less dense than water.",
+                    "Banana plants can produce fruit within 9 to 12 months after planting.",
+                    "The inside of a banana peel can soothe skin irritation and insect bites."
                 ],
-                c: [
-                    "fruit contains probiotics.",
-                    "It's made by fermenting milk.",
-                    "Greek yogurt is thicker.",
-                    "Plain yogurt has no added sugar.",
-                    "It supports digestive health.",
-                    "Yogurt can be frozen into snacks.",
-                    "It’s rich in calcium and protein.",
-                    "Flavored yogurts have fruit blends.",
-                    "Yogurt helps support your gut.",
-                    "It's been eaten since 5000 BCE."
+                orange: [
+                    "They belong to the citrus family, Rutaceae.",
+                    "Oranges are one of the most popular fruits worldwide.",
+                    "They are an excellent source of vitamin C.",
+                    "Orange trees can live up to 100 years.",
+                    "The peel of an orange contains essential oils used in perfumes and cleaning products.",
+                    "Orange juice was the first fruit juice to be commercially canned.",
+                    "There are many varieties of oranges, including navel, blood, and Valencia.",
+                    "Oranges originated in Southeast Asia.",
+                    "The color orange is named after the fruit.",
+                    "Orange blossoms are the state flower of Florida."
                 ]
             }
         }
@@ -227,7 +227,7 @@ class FoodFact {
     handleCardClick() {
         for (let key in this._selected) {
             for (let card of this._card) {
-            
+
                 if (!card.dataset.listenerAttached) {
                     card.addEventListener('click', () => {
 
@@ -252,7 +252,7 @@ class FoodFact {
                         };
                     });
 
-                    
+
                     card.dataset.listenerAttached = "true";
                 }
             }
@@ -342,60 +342,60 @@ class FoodFact {
     }
 
     resetApp() {
-    console.log("RESET triggered");
+        console.log("RESET triggered");
 
         const map = {
             dairy: 'first',
             snacks: 'secound',
             vegetable: 'third',
             carbohydrate: 'fourth',
-            fruit:'fifth'
+            fruit: 'fifth'
         };
 
-    // 1. Show original cards again and hide result cards
-    for (let keys in this._selected) {
-        const selected = this._selected[keys];
-        if (selected && selected.id) {
-            const originalCard = document.getElementById(selected.id);
-            if (originalCard) originalCard.style.display = 'block';
+        // 1. Show original cards again and hide result cards
+        for (let keys in this._selected) {
+            const selected = this._selected[keys];
+            if (selected && selected.id) {
+                const originalCard = document.getElementById(selected.id);
+                if (originalCard) originalCard.style.display = 'block';
+            }
+
+            const resultCard = document.getElementById(map[keys]);
+            if (resultCard) resultCard.style.display = 'none';
         }
 
-        const resultCard = document.getElementById(map[keys]);
-        if (resultCard) resultCard.style.display = 'none';
+        // 2. Reset selection 
+        for (let key in this._selected) {
+            this._selected[key] = null;
+        }
+
+        for (let key in this._factIndex) {
+            this._factIndex[key] = 0;
+        }
+
+        // 3. Hide result section
+        this._Resultsection.style.display = 'none';
+
+        // 4. Remove the LED 
+        const allCards = document.querySelectorAll('.card');
+        allCards.forEach(card => {
+            card.classList.remove('selected');
+            delete card.dataset.listenerAttached;
+        });
+
+        // 5. Reset button text and lock-in flag
+        this._isLockedIn = false;
+        this._button.textContent = 'LOCK IN';
+        console.log("Locked in flag reset to:", this._isLockedIn);
+
+
+        this._card = document.querySelectorAll(
+            '#dairy .card, #snacks .card, #vegetable .card, #carbohydrate .card, #fruit .card'
+        );
+
+
+        this.handleCardClick();
     }
-
-    // 2. Reset selection 
-    for (let key in this._selected) {
-        this._selected[key] = null;
-    }
-
-    for (let key in this._factIndex) {
-        this._factIndex[key] = 0;
-    }
-
-    // 3. Hide result section
-    this._Resultsection.style.display = 'none';
-
-    // 4. Remove the LED 
-    const allCards = document.querySelectorAll('.card');
-    allCards.forEach(card => {
-        card.classList.remove('selected');
-        delete card.dataset.listenerAttached;
-    });
-
-    // 5. Reset button text and lock-in flag
-    this._isLockedIn = false;
-    this._button.textContent = 'LOCK IN';
-    console.log("Locked in flag reset to:", this._isLockedIn);
-
-    
-    this._card = document.querySelectorAll(
-        '#dairy .card, #snacks .card, #vegetable .card, #carbohydrate .card, #fruit .card'
-    );
-
-    
-    this.handleCardClick();
-}
 }
 
 

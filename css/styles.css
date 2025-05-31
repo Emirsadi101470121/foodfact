@@ -179,7 +179,7 @@
  }
 
  #fruit_background {
-   background-image: url("imgs/snackbackgro.png") !important;
+   background-image: url("imgs/fruitsBackground.png") !important;
  }
 
  
@@ -262,7 +262,6 @@
 
  .Selected_cards_holder {
    display: grid;
-   border: 1px black solid;
    grid-template-columns: repeat(2, 1fr);
    padding: 10px;
    column-gap: 10px;
