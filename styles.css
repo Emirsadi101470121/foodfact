@@ -66,6 +66,7 @@
 
  main {
    padding-top: 85px;
+   width: 100%;
  }
 
  /* dairy */
@@ -144,6 +145,10 @@
 
  #carbohydrate_background {
    background-image: url("imgs/carbohydrateBackground.png") !important;
+ }
+
+ #fruit_background {
+   background-image: url("imgs/snackbackgro.png") !important;
  }
 
  
@@ -226,11 +231,17 @@
 
  .Selected_cards_holder {
    display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   column-gap: 15px;
+   border: 1px black solid;
+   grid-template-columns: repeat(2, 1fr);
+   padding: 10px;
+   column-gap: 10px;
+   row-gap: 25px;
    margin: 2rem auto;
    justify-items: center;
-   grid-template-areas: "first secound third fourth";
+   grid-template-areas: 
+   "first secound"
+    "third fourth" 
+    "fifth blank";
 
  }
 
@@ -249,6 +260,10 @@
 
  #fourth {
    grid-area: fourth;
+ }
+
+ #fifth {
+   grid-area: fifth;
  }
 
  /* selected class for selected card */

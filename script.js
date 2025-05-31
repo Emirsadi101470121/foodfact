@@ -7,7 +7,8 @@ class FoodFact {
             dairy: null,
             snacks: null,
             vegetable: null,
-            carbohydrate: null
+            carbohydrate: null,
+            fruit: null
         };
         this._card = document.querySelectorAll('.card');
         this._Resultsection = document.getElementById('selected_cards');
@@ -17,7 +18,8 @@ class FoodFact {
             dairy: 0,
             snacks: 0,
             vegetable: 0,
-            carbohydrate: 0
+            carbohydrate: 0,
+            fruit: 0
         };
         this._isLockedIn = false;
 
@@ -181,6 +183,44 @@ class FoodFact {
                     "Uncooked rice lasts for years.",
                     "Steamed rice is light and fluffy."
                 ]
+            },
+            fruit: {
+                a: [
+                    "fruit is 87% water.",
+                    "Cheese is over 7,000 years old.",
+                    "Yogurt helps digestion.",
+                    "Butter is churned cream.",
+                    "Calcium builds strong bones.",
+                    "Cows make 6 gallons daily.",
+                    "Cheese flavor comes from aging.",
+                    "Milk has natural sugar: lactose.",
+                    "Dairy cows eat 100 lbs daily.",
+                    "There are 400+ cheese types."
+                ],
+                b: [
+                    "fruit dates back over 7,000 years.",
+                    "There are over 1,800 cheese types.",
+                    "Cheddar gets sharper with age.",
+                    "Blue cheese has edible mold.",
+                    "Mozzarella was first made in Italy.",
+                    "Parmesan is aged for 12+ months.",
+                    "Cheese can be made from goat milk.",
+                    "Hard cheeses have less moisture.",
+                    "Swiss cheese has holes from gas.",
+                    "Smoked cheese has a rich flavor."
+                ],
+                c: [
+                    "fruit contains probiotics.",
+                    "It's made by fermenting milk.",
+                    "Greek yogurt is thicker.",
+                    "Plain yogurt has no added sugar.",
+                    "It supports digestive health.",
+                    "Yogurt can be frozen into snacks.",
+                    "It’s rich in calcium and protein.",
+                    "Flavored yogurts have fruit blends.",
+                    "Yogurt helps support your gut.",
+                    "It's been eaten since 5000 BCE."
+                ]
             }
         }
     }
@@ -237,7 +277,8 @@ class FoodFact {
                 dairy: 'first',
                 snacks: 'secound',
                 vegetable: 'third',
-                carbohydrate: 'fourth'
+                carbohydrate: 'fourth',
+                fruit: 'fifth'
 
             }
 
@@ -273,7 +314,8 @@ class FoodFact {
             dairy: 'first',
             snacks: 'secound',
             vegetable: 'third',
-            carbohydrate: 'fourth'
+            carbohydrate: 'fourth',
+            fruit: 'fifth'
 
         }
 
@@ -306,7 +348,8 @@ class FoodFact {
             dairy: 'first',
             snacks: 'secound',
             vegetable: 'third',
-            carbohydrate: 'fourth'
+            carbohydrate: 'fourth',
+            fruit:'fifth'
         };
 
         // 1. Show original cards again and hide result cards
