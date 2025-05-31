@@ -114,12 +114,16 @@
 
  
  main {
+
   padding-top: 160px;
   padding-left: 1rem;
   padding-right: 1rem;
   max-width: 100%;
 }
 
+
+   
+ 
 
 
  /* dairy */
@@ -202,6 +206,10 @@
 
  #fruit_background {
    background-image: url("../imgs/fruitsBackground.png") !important;
+ }
+
+ #fruit_background {
+   background-image: url("imgs/fruitsBackground.png") !important;
  }
 
  
@@ -299,6 +307,7 @@
    "first secound third"
    "fourth fifth  blank";
    overflow: hidden;
+
 
  }
 
@@ -420,5 +429,6 @@
      0 0 20px #00f0ff,
      0 0 35px #00f0ff;
  }
+
 
  
